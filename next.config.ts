@@ -1,6 +1,17 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // 1. Tell Next.js to export static HTML files
+  output: 'export',
+  
+  // 2. Tell Next.js your repository name so routing works on GitHub Pages
+  basePath: '/trubitev1',
+  
+  // 3. Disable image optimization (GitHub Pages doesn't support the Next.js image server)
+  images: {
+    unoptimized: true,
+  },
+  
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,34 +19,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**', // This allows any path under the hostname
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-      }
-    ],
-  },
-  output: 'standalone',
   transpilePackages: ['motion'],
-  webpack: (config, {dev}) => {
-    // HMR is disabled in AI Studio via DISABLE_HMR env var.
-    // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-    if (dev && process.env.DISABLE_HMR === 'true') {
-      config.watchOptions = {
-        ignored: /.*/,
-      };
-    }
-    return config;
-  },
 };
 
 export default nextConfig;
