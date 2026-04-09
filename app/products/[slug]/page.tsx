@@ -1,8 +1,8 @@
 import { products } from '@/lib/data';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, CheckCircle2, ShoppingBag } from 'lucide-react';
+import ProductGallery from '@/components/ProductGallery';
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -33,29 +33,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
           {/* Image Gallery */}
-          <div className="space-y-6">
-            <div className={`aspect-square relative rounded-3xl overflow-hidden ${product.bgColor} border border-neutral-100`}>
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                fill
-                className="object-cover mix-blend-multiply"
-                priority
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {product.images.slice(1).map((img, idx) => (
-                <div key={idx} className="aspect-square relative rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-100">
-                  <Image
-                    src={img}
-                    alt={`${product.name} detail ${idx + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <ProductGallery 
+            images={product.images} 
+            productName={product.name} 
+            bgColor={product.bgColor} 
+          />
 
           {/* Product Info */}
           <div className="flex flex-col">
