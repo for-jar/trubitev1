@@ -28,9 +28,9 @@ export const products = [
       addedSugar: '0g'
     },
     images: [
-      'https://picsum.photos/seed/peanutbutterjar1/1000/1000', // Placeholder for jar
-      'https://picsum.photos/seed/peanuts1/1000/1000', // Peanuts
-      'https://picsum.photos/seed/smoothie1/1000/1000' // Smoothie/Usage
+      '/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-front.jpg', // Placeholder for jar
+      '/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-back.jpg', // Peanuts
+      '/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-nutrition.jpg' // Smoothie/Usage
     ]
   },
   {
