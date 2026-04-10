@@ -132,8 +132,8 @@ export const products = [
     images: [
       '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-front.jpg',
       '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-back.jpg',
-      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition.jpg'
-      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition-1.jpg'
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition.jpg',
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition-1.jpg',
       '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-old-new.jpg'
     ]
   }
