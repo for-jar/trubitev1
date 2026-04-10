@@ -43,33 +43,36 @@ export default function ProductGallery({ images, productName, bgColor }: Product
     <div className="space-y-4">
       {/* Main Image Carousel */}
       <div 
-        className={`relative aspect-square rounded-3xl overflow-hidden cursor-zoom-in ${bgColor} border border-neutral-100 group`}
-        onClick={() => setIsModalOpen(true)}
+        className={`relative aspect-square rounded-3xl p-4 sm:p-6 ${bgColor} border border-neutral-100 group`}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={images[activeIndex]}
-              alt={`${productName} - Image ${activeIndex + 1}`}
-              fill
-              // Changed to object-contain and added padding
-              className="object-contain p-4 sm:p-8 mix-blend-multiply" 
-              priority={activeIndex === 0}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </motion.div>
-        </AnimatePresence>
+        <div 
+          className="relative w-full h-full bg-white rounded-2xl shadow-sm overflow-hidden flex items-center justify-center cursor-zoom-in"
+          onClick={() => setIsModalOpen(true)}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <Image
+                src={images[activeIndex]}
+                alt={`${productName} - Image ${activeIndex + 1}`}
+                fill
+                className="object-contain p-4 sm:p-8"
+                priority={activeIndex === 0}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </motion.div>
+          </AnimatePresence>
 
-        {/* Zoom Indicator */}
-        <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-          <ZoomIn size={20} />
+          {/* Zoom Indicator */}
+          <div className="absolute top-4 right-4 bg-neutral-100/80 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <ZoomIn size={20} />
+          </div>
         </div>
         
         {/* Mobile/Hover Navigation Arrows */}
@@ -77,14 +80,14 @@ export default function ProductGallery({ images, productName, bgColor }: Product
           <>
             <button 
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity hover:bg-white shadow-sm"
+              className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity hover:bg-white shadow-md border border-neutral-100 z-10"
               aria-label="Previous image"
             >
               <ChevronLeft size={24} />
             </button>
             <button 
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity hover:bg-white shadow-sm"
+              className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity hover:bg-white shadow-md border border-neutral-100 z-10"
               aria-label="Next image"
             >
               <ChevronRight size={24} />
@@ -100,19 +103,18 @@ export default function ProductGallery({ images, productName, bgColor }: Product
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl overflow-hidden border-2 transition-all snap-start ${
+              className={`relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl overflow-hidden border-2 transition-all snap-start bg-white ${
                 activeIndex === idx 
-                  ? 'border-[#1E5631] ring-2 ring-[#1E5631]/20' 
+                  ? 'border-[#1E5631] shadow-md' 
                   : 'border-transparent hover:border-neutral-200 opacity-70 hover:opacity-100'
-              } bg-neutral-100`}
+              }`}
               aria-label={`View image ${idx + 1}`}
             >
               <Image
                 src={img}
                 alt={`${productName} thumbnail ${idx + 1}`}
                 fill
-                // Changed to object-contain, added padding and mix-blend-multiply
-                className="object-contain p-2 mix-blend-multiply" 
+                className="object-contain p-2"
                 sizes="96px"
                 loading="lazy"
               />
@@ -132,15 +134,16 @@ export default function ProductGallery({ images, productName, bgColor }: Product
             onClick={() => setIsModalOpen(false)}
           >
             <button 
-              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/70 hover:text-white p-2 z-10 transition-colors"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/70 hover:text-white p-2 z-20 transition-colors"
               onClick={() => setIsModalOpen(false)}
               aria-label="Close modal"
             >
               <X size={32} />
             </button>
 
+            {/* Added white container to perfectly blend the image's white background */}
             <div 
-              className="relative w-full max-w-5xl aspect-square sm:aspect-video flex items-center justify-center"
+              className="relative w-full max-w-4xl aspect-square sm:aspect-video flex items-center justify-center bg-white rounded-3xl shadow-2xl p-4 overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <AnimatePresence mode="wait">
@@ -156,7 +159,7 @@ export default function ProductGallery({ images, productName, bgColor }: Product
                     src={images[activeIndex]}
                     alt={`${productName} full size ${activeIndex + 1}`}
                     fill
-                    className="object-contain"
+                    className="object-contain p-4"
                     sizes="100vw"
                     priority
                   />
@@ -167,14 +170,14 @@ export default function ProductGallery({ images, productName, bgColor }: Product
                 <>
                   <button 
                     onClick={prevImage}
-                    className="absolute left-0 sm:-left-16 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors backdrop-blur-md"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-neutral-900/10 hover:bg-neutral-900/20 p-3 rounded-full text-neutral-800 transition-colors backdrop-blur-md z-10"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={32} />
                   </button>
                   <button 
                     onClick={nextImage}
-                    className="absolute right-0 sm:-right-16 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors backdrop-blur-md"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-neutral-900/10 hover:bg-neutral-900/20 p-3 rounded-full text-neutral-800 transition-colors backdrop-blur-md z-10"
                     aria-label="Next image"
                   >
                     <ChevronRight size={32} />
@@ -183,7 +186,7 @@ export default function ProductGallery({ images, productName, bgColor }: Product
               )}
             </div>
             
-            {/* Modal Thumbnails (Optional, for better desktop UX) */}
+            {/* Modal Thumbnails */}
             {images.length > 1 && (
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
                 {images.map((_, idx) => (
