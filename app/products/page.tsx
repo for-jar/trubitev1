@@ -1,3 +1,5 @@
+// trubitev1-main/app/products/page.tsx
+
 import { products } from '@/lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,7 +29,8 @@ export default function ProductsPage() {
                   src={product.images[0]}
                   alt={product.name}
                   fill
-                  className="object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+                  // Changed object-cover to object-contain and added padding
+                  className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="w-full md:w-3/5 p-8 flex flex-col justify-center">
