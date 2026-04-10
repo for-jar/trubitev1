@@ -1,3 +1,5 @@
+// trubitev1-main/components/ProductGallery.tsx
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -57,7 +59,8 @@ export default function ProductGallery({ images, productName, bgColor }: Product
               src={images[activeIndex]}
               alt={`${productName} - Image ${activeIndex + 1}`}
               fill
-              className="object-cover mix-blend-multiply"
+              // Changed to object-contain and added padding
+              className="object-contain p-4 sm:p-8 mix-blend-multiply" 
               priority={activeIndex === 0}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -108,7 +111,8 @@ export default function ProductGallery({ images, productName, bgColor }: Product
                 src={img}
                 alt={`${productName} thumbnail ${idx + 1}`}
                 fill
-                className="object-cover"
+                // Changed to object-contain, added padding and mix-blend-multiply
+                className="object-contain p-2 mix-blend-multiply" 
                 sizes="96px"
                 loading="lazy"
               />
