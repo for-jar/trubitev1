@@ -14,7 +14,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAFAFA]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/trubitev1/images/creamy-1kg/Peanutbackground.jpg"
+            src="/trubitev1/images/creamy-1kg/Peanutbackground~2.jpg"
             alt="Peanuts background"
             fill
             className="object-cover opacity-[0.15]"
@@ -93,15 +93,19 @@ export default function Home() {
             {featuredProducts.map((product) => (
               <Link key={product.id} href={`/products/${product.slug}`} className="group block">
                 <div className="bg-white rounded-3xl overflow-hidden border border-neutral-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className={`aspect-[4/5] relative p-8 ${product.bgColor}`}>
-                    <Image
-                      src={product.images[0]}
-                      alt={product.name}
-                      fill
-                      // Changed object-cover to object-contain and added padding
-                      className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
-                    />
+                  
+                  {/* Clean white framing applied inside the colored section */}
+                  <div className={`aspect-[4/5] relative p-6 ${product.bgColor}`}>
+                    <div className="relative w-full h-full bg-white rounded-2xl shadow-sm overflow-hidden flex items-center justify-center">
+                      <Image
+                        src={product.images[0]}
+                        alt={product.name}
+                        fill
+                        className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
+
                   <div className="p-6">
                     <div className="text-xs font-bold tracking-wider text-neutral-500 uppercase mb-2">{product.category}</div>
                     <h3 className="text-xl font-bold text-neutral-900 mb-2">{product.name}</h3>
@@ -145,4 +149,4 @@ export default function Home() {
       </section>
     </div>
   );
-}
+                              }
