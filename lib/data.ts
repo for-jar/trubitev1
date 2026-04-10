@@ -28,9 +28,9 @@ export const products = [
       addedSugar: '0g'
     },
     images: [
-      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-front.jpg', // Placeholder for jar
-      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-back.jpg', // Peanuts
-      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-nutrition.jpg' // Smoothie/Usage
+      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-front.jpg',
+      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-back.jpg',
+      '/trubitev1/images/unsweetened-227g/trubite-peanut-butter-powder-unsweetened-227g-nutrition.jpg'
     ]
   },
   {
@@ -62,9 +62,9 @@ export const products = [
       addedSugar: '2g'
     },
     images: [
-      'https://picsum.photos/seed/peanutbutterjar2/1000/1000',
-      'https://picsum.photos/seed/peanuts2/1000/1000',
-      'https://picsum.photos/seed/smoothie2/1000/1000'
+      '/trubitev1/images/classic-425g/trubite-peanut-butter-powder-classic-425g-front.jpg',
+      '/trubitev1/images/classic-425g/trubite-peanut-butter-powder-classic-425g-back.jpg',
+      '/trubitev1/images/classic-425g/trubite-peanut-butter-powder-classic-425g-nutritionnutrition.jpg'
     ]
   },
   {
@@ -96,9 +96,9 @@ export const products = [
       addedSugar: '3.5g'
     },
     images: [
-      'https://picsum.photos/seed/peanutbutterjar3/1000/1000',
-      'https://picsum.photos/seed/peanuts3/1000/1000',
-      'https://picsum.photos/seed/smoothie3/1000/1000'
+      '/trubitev1/images/cocoa-425g/trubite-peanut-butter-powder-cocoa-425g-front.jpg',
+      '/trubitev1/images/cocoa-425g/trubite-peanut-butter-powder-cocoa-425g-back.jpg',
+      '/trubitev1/images/cocoa-425g/trubite-peanut-butter-powder-cocoa-425g-nutrition.jpg'
     ]
   },
   {
@@ -130,9 +130,11 @@ export const products = [
       addedSugar: '0g'
     },
     images: [
-      'https://picsum.photos/seed/peanutbutterjar4/1000/1000',
-      'https://picsum.photos/seed/peanuts4/1000/1000',
-      'https://picsum.photos/seed/smoothie4/1000/1000'
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-front.jpg',
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-back.jpg',
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition.jpg'
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-nutrition-1.jpg'
+      '/trubitev1/images/creamy-1kg/trubite-natural-peanut-butter-creamy-1kg-old-new.jpg'
     ]
   }
 ];
