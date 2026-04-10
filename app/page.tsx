@@ -14,7 +14,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAFAFA]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://picsum.photos/seed/peanutsbg/2940/1600"
+            src="/trubitev1/images/creamy-1kg/Peanutbackground.jpg"
             alt="Peanuts background"
             fill
             className="object-cover opacity-[0.15]"
