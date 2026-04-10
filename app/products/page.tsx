@@ -24,15 +24,19 @@ export default function ProductsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {products.map((product) => (
             <Link key={product.id} href={`/products/${product.slug}`} className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden border border-neutral-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <div className={`w-full md:w-2/5 aspect-square md:aspect-auto relative p-8 ${product.bgColor}`}>
-                <Image
-                  src={product.images[0]}
-                  alt={product.name}
-                  fill
-                  // Changed object-cover to object-contain and added padding
-                  className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
-                />
+              
+              {/* Clean white framing applied inside the colored section */}
+              <div className={`w-full md:w-2/5 min-h-[300px] relative p-6 md:p-8 ${product.bgColor}`}>
+                <div className="relative w-full h-full bg-white rounded-2xl shadow-sm overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               </div>
+
               <div className="w-full md:w-3/5 p-8 flex flex-col justify-center">
                 <div className="text-xs font-bold tracking-wider text-neutral-500 uppercase mb-2">{product.category}</div>
                 <h2 className="text-2xl font-bold text-neutral-900 mb-3">{product.name}</h2>
